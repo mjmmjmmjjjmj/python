@@ -5,7 +5,6 @@ class AlienInvasion:
     """게임 자원과 동작을 전체적으로 관리하는 클래스"""
 
 pygame.init()
-
 screen = pygame.display.set_mode((1280,720))
 
 clock = pygame.time.Clock()
@@ -40,39 +39,47 @@ while True:
             # raise SystemExit
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                ship_rect.left -= 2
+                ship_rect.left -= 10
             elif event.key == pygame.K_RIGHT :
-                ship_rect.right += 2
+                ship_rect.right += 10
+                # alt + shift + ↓ : 밑에 복사됨
             elif event.key == pygame.K_UP :
-                ship_rect.top -= 2
+                ship_rect.top -= 10
             elif event.key == pygame.K_DOWN :
                 if ship_rect.top + ship_rect.height <= screen_rect.height :
-                    ship_rect.bottom += 2
+                    ship_rect.bottom += 10
             elif event.key == pygame.K_SPACE :
                 b = create_bullet(ship_rect)
                 bullets.append(b)
 
-    # Do logical updates here.
-    new_bullet = []
-    for bullet in bullets:
-        bullet.top -= 1
-    for bullet in bullets :
-        if screen_rect.top < bullet.top :
-            bullet.top -= 1
-            new_bullet.append(bullet)
-        return new_bullet
-    # ...
-
     screen.fill("black")  # Fill the display with a solid color
 
-    # Render the graphics here.
+    # Do logical updates here.
+    def update_bullets(screen_rect, bullets):
+        new_bullets = []
+        for bullet in bullets :
+            if screen_rect.top < bullet.top :
+                bullet.top -= 1
+                new_bullets.append(bullet)
+        return new_bullets
+    
+
+    def render(screen, image, ship_rect, new_bullets) :
+        screen.blit(image, ship_rect)
+        for bullet in new_bullets:
+            pygame.draw.rect(screen, bullet_color, bullet)
     # ...
-    new_bullets 
 
     screen.blit(image, ship_rect)
+
     for bullet in bullets:
         bullet.top -= 1
         pygame.draw.rect(screen, bullet_color, bullet)
+
+
+    # Render the graphics here.
+    # ...
+    # new_bullets 
     
     
     pygame.display.flip()  # Refresh on-screen display
