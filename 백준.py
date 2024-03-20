@@ -105,22 +105,152 @@ for value in fools.values():  # 딕셔너리의 값들을 반복하면서,
 print(count)  # 최종적으로 서로 다른 나머지의 개수를 출력합니다.
 
 
-
-
 # 문자열 - str 2675, 1152
 # 2675 문자열 반복
+T = int(input())
+1<=T<=1000
+for _ in range (T) : 
+    R, S = input().split()
+    R = int (R)
+    1<=R<=8
+    P = ""
+    for char in S:
+        P += char * R
+    print(P)
+
 # 1152 단어의 개수
+sentence = input().strip()
+ # 문자열 입력 및 양쪽 공백 제거
+words = sentence.split()
+# 공백을 기준으로 문자열을 분리하여 단어의 리스트를 얻음
+print(len(words))
+# 분리된 단어의 개수를 출력
 
-# 집합과 맵 - dictionary 10815, 14425
+# 집합과 맵, dictionary - dictionary 10815, 14425 7785
 # 10815 숫자카드
-# 14425 문자열 집합
 
-# #dictionary
+N = int(input())
+1<=N<=500000
+cards = list(map(int, input().split()))
+# 상근이가 가지고 있는 숫자 카드의 개수 N과 숫자 카드들을 입력 받음
+
+M = int(input())
+check_numbers = list(map(int, input().split()))
+# 입력으로 주어진 M개의 수의 개수 M과 M개의 수를 입력 받음
+
+cards_set = set(cards)
+# 상근이가 가지고 있는 숫자 카드를 set으로 변환하여 중복을 제거함
+
+for num in check_numbers :
+    if num in cards_set :
+        print(1, end=" ")
+    else :
+        print(0, end=" ")
+# 각 수가 숫자 카드 리스트에 있는지 확인하여 결과를 출력
+        
+# 14425 문자열 집합
+N, M = map(int.input().split())
+S = set()
+for _ in range(N) :
+    S.add(input())
+
+count = 0
+for _ in range (M):
+    if input() in S:
+        count += 1
+
+print(count)
+
+# 백준 버전 : 
+# sys.stdin.readline().strip()는 파이썬의 표준 라이브러리인 
+# sys 모듈을 사용하여 표준 입력에서 한 줄을 읽어오고 개행 문자를 제거하는 방법
+# 표준 입력에서 입력을 받는 데 있어서 더욱 효율적으로 처리
+# input() 함수는 파이썬의 내장 함수로, 보다 유연한 사용법을 제공하지만 
+# 입력이 많은 경우에는 처리 속도가 느려질 수 있기 때문
+import sys
+
+N, M = map(int, sys.stdin.readline().strip().split())
+S = set()
+for _ in range(N):
+    S.add(sys.stdin.readline().strip())
+
+count = 0
+for _ in range(M):
+    if sys.stdin.readline().strip() in S:
+        count += 1
+
+print(count)
+ 
+# 7785
+n = int(input())
+logs = []
+for _ in range (n) :
+    name, action = input().split()
+    logs.append((name, action))
+
+current_employees = set()
+for name, action in logs : 
+    if action == "enter":
+        current_employees.add(name)
+    else :
+        current_employees.remove(name)
+
+for employee in sorted(current_employees, reverse=True):
+    print(employee)
+
+
+
+# 정렬 - 2750, 2587, 25305
+# 2750 수 정렬하기
+n = int(input())
+numbers = []
+
+for _ in range(n) : 
+    num = int(input())
+    numbers.append(num)
+
+numbers.sort() # 모든 수를 입력한 후에 오름차순으로 정렬
+# 모든 수를 입력한 후에 내림차순으로 정렬
+# numbers.sort(reverse=True)
+    
+for num in numbers: # 정렬된 수들을 한 줄에 하나씩 출력
+    print(num)
+        
+# 2587 대표값2
+n = int(input())
+numbers = []
+
+for _ in range(5) :
+    num = int(input())
+    numbers.append(num)
+
+numbers.sort()
+median_index = len(numbers) // 2
+median = numbers[median_index]
+
+print(median)
+
+
+
+
+# 25305 커트라인
+    
+# 10988 팰린드롬
+# 1157 단어공부
+# 1316 그룹 단어 체커
+
+# 2738 행렬 덧셈
+# 2566 최댓값
+# 10798 세로읽기
+
+
+
 # answer = []
 # for d in data : 
 #     if d not in answer : 
 #         answer.append(d)
 # print(len(answer))
+
 
 
 
