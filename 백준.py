@@ -217,7 +217,7 @@ for num in numbers: # 정렬된 수들을 한 줄에 하나씩 출력
     print(num)
         
 # 2587 대표값2
-n = int(input())
+# n = int(input())
 numbers = []
 
 for _ in range(5) :
@@ -225,23 +225,63 @@ for _ in range(5) :
     numbers.append(num)
 
 numbers.sort()
-median_index = len(numbers) // 2
-median = numbers[median_index]
+# median_index = len(numbers) // 2
+# median = numbers[median_index]
 
-print(median)
+# print(median)
 
+print(int(sum(numbers)/5))
+print(numbers[2])
 
 
 
 # 25305 커트라인
-    
+# 1<=n<=1000
+# 1<=k<=n
+# 0<=x<=10000
+# n, k = input().split()
+# n = int(n)
+# k = int(k)
+# scores_input = input().split()
+
+# scores = []
+# for score in scores_input:
+#     scores.append(int(score))
+
+# score.sort(reverse = True)
+
+# cut_line = scores[k-1]
+# print(cut_line)
+
+n, k = map(int, input().split())
+scores = list(map(int, input().split()))
+
+scores.sort(reverse=True)
+print(scores[k-1])
+
+
 # 10988 팰린드롬
+
 # 1157 단어공부
 # 1316 그룹 단어 체커
 
 # 2738 행렬 덧셈
+
+
 # 2566 최댓값
 # 10798 세로읽기
+
+# 수학
+# 2745 진법변환
+# 5086 배수와 약수
+# 1978 소수찾기
+# 2869 달팽이
+# 1934 최소공배수
+
+# 기타
+# 24264 알고리즘 수행시간
+# 2798 블랙잭
+# 1018 체스판 색칠
 
 
 
